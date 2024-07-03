@@ -2,9 +2,13 @@
 "use strict";
 const body = document.querySelector("body");
 
+// thresholds for X and Y
 let xt = 0;
 let yt = 0;
+// How long does it take to generate another spark
+// the bigger the number, the less sparks occur
 let steps = 100;
+// colors for the sparks
 const colors =
 [
     "rgb(254, 52, 208)",
@@ -36,6 +40,9 @@ window
     }
 });
 
+/** Generates a new spark on the current mouse position
+ * @param {number} x 
+ * @param {number} y  */
 function makeStar(x, y) {
     let holder = document.createElement("div");
     holder.classList.add("holder");
@@ -53,7 +60,11 @@ function makeStar(x, y) {
         holder.remove();
     }, 1500);
 }
-
+/** Generates a random number to pick a color from
+ *  the "colors" -Array
+ * @param {´number} max 
+ * @param {number} min 
+ * @returns number */
 function randomIntegerBetween(max, min) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
