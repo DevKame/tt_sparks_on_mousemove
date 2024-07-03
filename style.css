@@ -1,0 +1,68 @@
+
+:root {
+    --circleWidth: 10px;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #152145;
+}
+.holder {
+    position: absolute;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    transform-style: preserve-3d;
+}
+.circle {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: var(--circleWidth);
+    height: var(--circleWidth);
+    border-radius: 50%;
+    transition: all .5s linear;
+    opacity: .6;
+    animation: circling 1.5s linear 1 forwards;
+}
+@keyframes circling {
+    0% {
+        transform:
+        translateX(0) translateY(0) rotateY(0);
+        opacity: .6;
+        /* translate(0, 0); */
+    }
+    25% {
+        transform:
+        translateX(-10px) translateY(50px) rotateY(180deg);
+    }
+    37.5% {
+        transform:
+        translateX(-13px) translateY(75px) rotateY(180deg);
+    }
+    50% {
+        transform:
+        translateX(15px) translateY(100px) rotateY(360deg);
+    }
+    62.5% {
+        transform:
+        translateX(18px) translateY(120px) rotateY(360deg);
+    }
+    75% {
+        transform:
+        translateX(-13px) translateY(140px) rotateY(180deg);
+    }
+    87.5% {
+        transform:
+        translateX(-17px) translateY(160px) rotateY(180deg);
+    }
+    100% {
+        transform:
+        translateX(10px) translateY(180px) rotateY(360deg);
+        opacity: 0;
+    }
+}
